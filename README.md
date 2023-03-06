@@ -51,7 +51,7 @@
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://api.spacexdata.com">SpaceX API</a></li>
+    <li><a href="https://api.spacexdata.com/v3">SpaceX API</a></li>
   </ul>
 </details>
 
