@@ -1,12 +1,18 @@
 import './App.css';
-
+import Navbar from './components/navbar';
+import Rockets from './components/rockets';
+import { Routes, Route } from 'react-router-dom';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello World
-      </header>
-    </div>
+    <>
+    <Navbar />
+    <Routes>
+        <Route path="/" element={<Rockets />} />
+        <Route path="/books" element={<Rockets />} />
+        <Route path="/categories" element={<Rockets />} />
+      </Routes>
+    
+    </>
   );
 }
 
