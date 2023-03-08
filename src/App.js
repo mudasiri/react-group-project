@@ -1,17 +1,18 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Rockets from './components/rockets';
-import { Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <>
-    <Navbar />
-    <Routes>
+      <Navbar />
+      <Routes>
         <Route path="/" element={<Rockets />} />
         <Route path="/books" element={<Rockets />} />
         <Route path="/categories" element={<Rockets />} />
       </Routes>
-    
+
     </>
   );
 }
