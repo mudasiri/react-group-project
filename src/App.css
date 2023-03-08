@@ -37,10 +37,40 @@ margin-left: 10px;
 }
 
 .nav-links li a{
-  text-decoration: none;
   color: #1485ff;
+  text-decoration: none;
 }
 
 .horizontal {
   color: #d1d2d28a;
+}
+
+.active-link{
+  text-decoration: underline !important;
+}
+
+.rocket-info-container{
+  display: flex;
+  align-items: start;
+  column-gap: 10px;
+}
+
+.rocket-info h2{
+  margin-top: 0;
+}
+
+.reserve-btn{
+  background-color: #1485ff;
+  color: white;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.rocket-img{
+  height: 200px;
+}
+
+.rocket-img img{
+  height: 200px;
 }
