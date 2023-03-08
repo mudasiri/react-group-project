@@ -1,43 +1,33 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
-    rockets: [],
-    status: 'idle',
-    error: '',
+  rockets: [],
+  status: 'idle',
+  error: '',
 };
 
 // Async thunk to fetch Rockets
 export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () => {
-    const response = await fetch(`https://api.spacexdata.com/v4/rockets`);
-    const data = await response.json();
-    return data;
-  });
+  const response = await fetch('https://api.spacexdata.com/v4/rockets');
+  const data = await response.json();
+  return data;
+});
 
-  export const rocketsSlice = createSlice({
-    name: 'rockets',
-    initialState,
-    reducers:{
+export const rocketsSlice = createSlice({
+  name: 'rockets',
+  initialState,
+  reducers: {
 
-    },
-    extraReducers: (builder) => {
-        builder
-        .addCase(fetchRockets.fulfilled, (state, action) => {
-            state.status = 'succeded';
-            const liveBooks = action.payload;
-            const booksStore = [];
-            Object.keys(liveBooks).map((id) => (
-              booksStore.push(
-                {
-                  
-                },
-              )
-            ));
-            state.rockets = liveBooks;
-            console.log(liveBooks);
-          })
-    }
-  }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchRockets.fulfilled, (state, action) => {
+        state.status = 'succeded';
+        const liveBooks = action.payload;
+        state.rockets = liveBooks;
+      });
+  },
+});
 
-  );
-
-  export default rocketsSlice.reducer;
+export default rocketsSlice.reducer;
