@@ -1,33 +1,41 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Badge from 'react-bootstrap/Badge';
 
 import Table from 'react-bootstrap/Table';
 
 function Mission() {
   return (
-
     <div>
-
       <Table striped bordered hove>
         <thead>
           <tr>
-            <th className="th_title">Mission</th>
-            <th className="th_desc desc_head">Description</th>
-            <th className="th_button">Status</th>
-            <th className="th_button">  </th>
+            <th>Mission</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th> </th>
           </tr>
         </thead>
         <tbody>
-
           <tr>
-            <td className="th_title desc_head">Thaicon</td>
-            <td className="th_title desc_head">To be the number one space-tech company in Thailand and one of the top in the region. To grow our business through international partnerships. To build new digital capabilities to serve business opportunities of the future.</td>
-            <td className="th_title desc_head"><Button variant="secondary" size="sm">Not a member</Button></td>
-            <td className="th_title desc_head"><Button variant="outline-dark" size="sm">Join mission</Button></td>
-
+            <td>Thaicon</td>
+            <td>
+              To be the number one space-tech company in Thailand and one of the
+              top in the region. To grow our business through international
+              partnerships.
+            </td>
+            <td>
+              <Badge bg="secondary">
+                Not a member
+              </Badge>
+              {' '}
+            </td>
+            <td>
+              <Badge bg="secondary">
+                Join mission
+              </Badge>
+            </td>
           </tr>
-
         </tbody>
       </Table>
     </div>
