@@ -42,3 +42,5 @@ export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () =>
   }
 
   )
+
+  export default rocketsSlice.reducer;
