@@ -5,12 +5,12 @@ import Rocket from './rocket';
 
 function Rockets() {
   const dispatch = useDispatch();
-  const { status } = useSelector((state) => state.rockets.status);
-
+  const status = useSelector((state) => state.rockets.status);
   useEffect(() => {
     dispatch(fetchRockets());
+    
   }, [dispatch]);
-
+  
   if (status !== 'succeded') {
     return (
       <div className="container">
