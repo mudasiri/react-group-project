@@ -19,26 +19,26 @@ export const rocketsSlice = createSlice({
   initialState,
   reducers: {
     add: (state, action) => {
-        state.rockets.push(action.payload);
-      },
+      state.rockets.push(action.payload);
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRockets.fulfilled, (state, action) => {
         state.status = 'succeded';
         const liveRockets = action.payload;
-       const rocketsStore = [];
-        liveRockets.map((rocket)=>(
-            rocketsStore.push(
-                {
-                    id: rocket.id,
-                    name: rocket.name,
-                    type: rocket.type,
-                    flickr_images: rocket.flickr_images[0],
-                }
-      )));
-       
-       state.rockets = rocketsStore;
+        const rocketsStore = [];
+        liveRockets.map((rocket) => (
+          rocketsStore.push(
+            {
+              id: rocket.id,
+              name: rocket.name,
+              type: rocket.type,
+              flickr_images: rocket.flickr_images[0],
+            },
+          )));
+
+        state.rockets = rocketsStore;
       })
       .addCase(fetchRockets.rejected, (state, action) => {
         state.status = 'failed';

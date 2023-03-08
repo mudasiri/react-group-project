@@ -8,9 +8,8 @@ function Rockets() {
   const status = useSelector((state) => state.rockets.status);
   useEffect(() => {
     dispatch(fetchRockets());
-    
   }, [dispatch]);
-  
+
   if (status !== 'succeded') {
     return (
       <div className="container">
