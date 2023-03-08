@@ -134,9 +134,9 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 👤 **Author 2**
 
-- GitHub: [Github]()
-- Twitter: [Tweeter]()
-- LinkedIn: [LinkedIn]()
+- GitHub: [Github](https://github.com/mudasiri)
+- Twitter: [Tweeter](https://twitter.com/mudasir_issah)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/mudasir-issah)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

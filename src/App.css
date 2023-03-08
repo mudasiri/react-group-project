@@ -12,3 +12,71 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.container {
+  padding: 5px 20px;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-img {
+  margin-right: 15px;
+}
+
+.nav-links {
+  list-style-type: none;
+}
+
+.nav-links li {
+  display: inline;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.nav-links li a {
+  color: #1485ff;
+  text-decoration: none;
+}
+
+.horizontal {
+  color: #d1d2d28a;
+}
+
+.active-link {
+  text-decoration: underline !important;
+}
+
+.rocket-info-container {
+  display: flex;
+  align-items: start;
+  column-gap: 10px;
+}
+
+.rocket-info h2 {
+  margin-top: 0;
+}
+
+.reserve-btn {
+  background-color: #1485ff;
+  color: white;
+  border: 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.rocket-img {
+  height: 200px;
+}
+
+.rocket-img img {
+  height: 200px;
+}
