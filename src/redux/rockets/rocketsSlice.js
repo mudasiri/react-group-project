@@ -28,19 +28,16 @@ export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () =>
             Object.keys(liveBooks).map((id) => (
               booksStore.push(
                 {
-                  item_id: id,
-                  title: liveBooks[id][0].title[0],
-                  author: liveBooks[id][0].author[0],
-                  category: liveBooks[id][0].category,
+                  
                 },
               )
             ));
-            state.rockets = booksStore;
-            console.log(state.rockets);
+            state.rockets = liveBooks;
+            console.log(liveBooks);
           })
     }
   }
 
-  )
+  );
 
   export default rocketsSlice.reducer;
