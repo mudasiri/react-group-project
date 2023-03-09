@@ -31,7 +31,7 @@ export const missionsSlice = createSlice({
         liveMissions.map((mission) => (
           missionsStore.push(
             {
-              id: mission.mission_id,
+              id: mission.id,
               name: mission.mission_name,
               description: mission.description,
 
