@@ -56,9 +56,11 @@
 }
 
 .rocket-info-container {
-  display: flex;
+  display: grid;
   align-items: start;
   column-gap: 10px;
+  margin-bottom: 15px;
+  grid-template-columns: 20% 80%;
 }
 
 .rocket-info h2 {
@@ -79,4 +81,5 @@
 
 .rocket-img img {
   height: 200px;
+  width: 100%;
 }
