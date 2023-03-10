@@ -5,12 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import { useSelector } from "react-redux";
 
-function MyProfil() {
+function MyProfile() {
   const missions = useSelector((state) => state.missions.missions);
   const missionsFiltered = missions.filter(
     (mission) => mission.reserved === true
   );
-
+  const { rockets } = useSelector((state) => state.rockets);
+  const bookedRockets = rockets.filter((rocket) => rocket.reserved);
   return (
     <Container>
       <Row>
@@ -36,19 +37,18 @@ function MyProfil() {
         <Col size="sm">
           <Table bordered hover>
             <thead>
-              My Rockets
+              <tr>
+                <th>My Rockets</th>
+              </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Falcon 9</td>
-              </tr>
-              <tr>
-                <td>Falcon  Heavy</td>
-              </tr>
-              <tr>
-                <td>Starship</td>
-              </tr>
+              {bookedRockets.length === 0 && <p>No Reserved Rockets</p>}
 
+              {bookedRockets.map((rocket) => (
+                <tr key={rocket.id}>
+                  <td>{rocket.name}</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Col>
@@ -56,4 +56,4 @@ function MyProfil() {
     </Container>
   );
 }
-export default MyProfil;
+export default MyProfile;
