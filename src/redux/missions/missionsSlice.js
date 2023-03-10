@@ -17,8 +17,19 @@ export const missionsSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    add: (state, action) => {
-      state.missions.push(action.payload);
+    reserve: (state, action) => {
+      const missionz = state.missions.map((mission) => {
+        if (mission.id !== action.payload) return mission;
+        return { ...mission, reserved: true };
+      });
+      state.missions = missionz;
+    },
+    cancel: (state, action) => {
+      const missionz = state.missions.map((mission) => {
+        if (mission.id !== action.payload) return mission;
+        return { ...mission, reserved: false };
+      });
+      state.missions = missionz;
     },
   },
 
@@ -34,7 +45,7 @@ export const missionsSlice = createSlice({
               id: mission.id,
               name: mission.mission_name,
               description: mission.description,
-
+              reserved: false,
             },
           )));
 
@@ -47,4 +58,5 @@ export const missionsSlice = createSlice({
   },
 });
 
+export const { reserve, cancel } = missionsSlice.actions;
 export default missionsSlice.reducer;

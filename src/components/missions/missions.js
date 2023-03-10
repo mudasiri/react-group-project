@@ -47,9 +47,7 @@ function Missions() {
                 {' '}
               </td>
               <td>
-                <Badge bg="secondary">
-                  Join mission
-                </Badge>
+                <button className='join-btn' type='button'>Join Mission</button>
               </td>
             </tr>
 
