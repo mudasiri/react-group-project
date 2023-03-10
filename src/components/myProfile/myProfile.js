@@ -3,30 +3,33 @@ import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import { useSelector } from 'react-redux';
 
-function MyProfil() {
+function MyProfile() {
+  const missions = useSelector((state) => state.missions.missions);
+  const missionsFiltered = missions.filter(
+    (mission) => mission.reserved === true,
+  );
+  const { rockets } = useSelector((state) => state.rockets);
+  const bookedRockets = rockets.filter((rocket) => rocket.reserved);
   return (
     <Container>
       <Row>
         <Col size="sm">
           <Table bordered hover>
             <thead>
-              My Missions
+              <tr>
+                <th>My Missions</th>
+              </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Tesla</td>
-              </tr>
-              <tr>
-                <td>SES</td>
-              </tr>
-              <tr>
-                <td>Asiasat</td>
-              </tr>
-              <tr>
-                <td>ABS</td>
-              </tr>
+              {missionsFiltered.length === 0 && <p>No Reserved Missions</p>}
 
+              {missionsFiltered.map((mission) => (
+                <tr key={mission.id}>
+                  <td>{mission.name}</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Col>
@@ -34,19 +37,18 @@ function MyProfil() {
         <Col size="sm">
           <Table bordered hover>
             <thead>
-              My Rockets
+              <tr>
+                <th>My Rockets</th>
+              </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Falcon 9</td>
-              </tr>
-              <tr>
-                <td>Falcon  Heavy</td>
-              </tr>
-              <tr>
-                <td>Starship</td>
-              </tr>
+              {bookedRockets.length === 0 && <p>No Reserved Rockets</p>}
 
+              {bookedRockets.map((rocket) => (
+                <tr key={rocket.id}>
+                  <td>{rocket.name}</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Col>
@@ -54,4 +56,4 @@ function MyProfil() {
     </Container>
   );
 }
-export default MyProfil;
+export default MyProfile;
