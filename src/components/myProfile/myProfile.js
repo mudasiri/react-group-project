@@ -3,30 +3,32 @@ import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import { useSelector } from "react-redux";
 
 function MyProfil() {
+  const missions = useSelector((state) => state.missions.missions);
+  const missionsFiltered = missions.filter(
+    (mission) => mission.reserved === true
+  );
+
   return (
     <Container>
       <Row>
         <Col size="sm">
-          <Table bordered hover>
+        <Table bordered hover>
             <thead>
-              My Missions
+              <tr>
+                <th>My Missions</th>
+              </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Tesla</td>
-              </tr>
-              <tr>
-                <td>SES</td>
-              </tr>
-              <tr>
-                <td>Asiasat</td>
-              </tr>
-              <tr>
-                <td>ABS</td>
-              </tr>
+              {missionsFiltered.length === 0 && <p>No Reserved Missions</p>}
 
+              {missionsFiltered.map((mission) => (
+                <tr key={mission.id}>
+                  <td>{mission.name}</td>
+                </tr>
+              ))}
             </tbody>
           </Table>
         </Col>
