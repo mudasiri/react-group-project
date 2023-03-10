@@ -3,12 +3,12 @@ import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
 function MyProfile() {
   const missions = useSelector((state) => state.missions.missions);
   const missionsFiltered = missions.filter(
-    (mission) => mission.reserved === true
+    (mission) => mission.reserved === true,
   );
   const { rockets } = useSelector((state) => state.rockets);
   const bookedRockets = rockets.filter((rocket) => rocket.reserved);
@@ -16,7 +16,7 @@ function MyProfile() {
     <Container>
       <Row>
         <Col size="sm">
-        <Table bordered hover>
+          <Table bordered hover>
             <thead>
               <tr>
                 <th>My Missions</th>
