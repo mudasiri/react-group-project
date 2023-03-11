@@ -37,7 +37,8 @@ export const rocketsSlice = createSlice({
     builder
       .addCase(fetchRockets.fulfilled, (state, action) => {
         state.status = 'succeded';
-        const liveRockets = action.payload;
+        if(state.rockets.length === 0) {
+          const liveRockets = action.payload;
         const rocketsStore = [];
         liveRockets.map((rocket) => (
           rocketsStore.push(
@@ -50,8 +51,8 @@ export const rocketsSlice = createSlice({
               reserved: false,
             },
           )));
-
-        state.rockets = rocketsStore;
+          state.rockets = rocketsStore;
+        }
       })
       .addCase(fetchRockets.rejected, (state, action) => {
         state.status = 'failed';
