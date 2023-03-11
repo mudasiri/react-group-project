@@ -1,18 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Badge from 'react-bootstrap/Badge';
 import Table from 'react-bootstrap/Table';
-import { fetchMissions, join, leave } from '../../redux/missions/missionsSlice';
+import { join, leave } from '../../redux/missions/missionsSlice';
 
 function Missions() {
   const dispatch = useDispatch();
   const { missions } = useSelector((state) => state.missions);
 
   const status = useSelector((state) => state.missions.status);
-  useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch]);
 
   if (status !== 'succeded') {
     return (

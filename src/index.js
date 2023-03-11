@@ -6,6 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
+import { fetchMissions } from './redux/missions/missionsSlice';
+
+store.dispatch(fetchMissions());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
