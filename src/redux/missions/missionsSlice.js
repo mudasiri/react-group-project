@@ -37,20 +37,20 @@ export const missionsSlice = createSlice({
     builder
       .addCase(fetchMissions.fulfilled, (state, action) => {
         state.status = 'succeded';
-        if(state.missions.length === 0) {
+        if (state.missions.length === 0) {
           const liveMissions = action.payload;
-        const missionsStore = [];
-        liveMissions.map((mission) => (
-          missionsStore.push(
-            {
-              id: mission.mission_id,
-              name: mission.mission_name,
-              description: mission.description,
-              reserved: false,
-            },
-          )));
+          const missionsStore = [];
+          liveMissions.map((mission) => (
+            missionsStore.push(
+              {
+                id: mission.mission_id,
+                name: mission.mission_name,
+                description: mission.description,
+                reserved: false,
+              },
+            )));
 
-        state.missions = missionsStore;
+          state.missions = missionsStore;
         }
       })
       .addCase(fetchMissions.rejected, (state, action) => {
