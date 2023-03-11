@@ -37,21 +37,22 @@ export const rocketsSlice = createSlice({
     builder
       .addCase(fetchRockets.fulfilled, (state, action) => {
         state.status = 'succeded';
-        const liveRockets = action.payload;
-        const rocketsStore = [];
-        liveRockets.map((rocket) => (
-          rocketsStore.push(
-            {
-              id: rocket.id,
-              name: rocket.name,
-              type: rocket.type,
-              description: rocket.description,
-              flickr_images: rocket.flickr_images[0],
-              reserved: false,
-            },
-          )));
-
-        state.rockets = rocketsStore;
+        if (state.rockets.length === 0) {
+          const liveRockets = action.payload;
+          const rocketsStore = [];
+          liveRockets.map((rocket) => (
+            rocketsStore.push(
+              {
+                id: rocket.id,
+                name: rocket.name,
+                type: rocket.type,
+                description: rocket.description,
+                flickr_images: rocket.flickr_images[0],
+                reserved: false,
+              },
+            )));
+          state.rockets = rocketsStore;
+        }
       })
       .addCase(fetchRockets.rejected, (state, action) => {
         state.status = 'failed';
