@@ -37,7 +37,8 @@ export const missionsSlice = createSlice({
     builder
       .addCase(fetchMissions.fulfilled, (state, action) => {
         state.status = 'succeded';
-        const liveMissions = action.payload;
+        if(state.missions.length === 0) {
+          const liveMissions = action.payload;
         const missionsStore = [];
         liveMissions.map((mission) => (
           missionsStore.push(
@@ -50,6 +51,7 @@ export const missionsSlice = createSlice({
           )));
 
         state.missions = missionsStore;
+        }
       })
       .addCase(fetchMissions.rejected, (state, action) => {
         state.status = 'failed';
